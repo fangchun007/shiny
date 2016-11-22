@@ -5099,7 +5099,6 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     function initializeInputs() {
       var scope = arguments.length <= 0 || arguments[0] === undefined ? document : arguments[0];
 
-
       var bindings = inputBindings.getBindings();
 
       // Iterate over all bindings
