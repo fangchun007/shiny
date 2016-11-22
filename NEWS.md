@@ -5,6 +5,8 @@ shiny 0.14.2.9000
 
 ### Minor new features and improvements
 
+* Added a new `placeholder` argument to `verbatimTextOutput()`. The default is `TRUE`, which means that an empty rectangle will serve as placeholder if the content of a `verbatimTextOutput` is empty (or `NULL`). When `FALSE`, nothing is displayed on the page when the content of the output is empty. ([#1480](https://github.com/rstudio/shiny/pull/1480))
+
 ### Bug fixes
 
 * Fixed bug causing `<meta>` tags associated with HTML dependencies of Shiny R Markdown files to be rendered incorrectly. ([#1463](https://github.com/rstudio/shiny/pull/1463))
