@@ -920,14 +920,16 @@ buildTabset <- function(tabs, ulClass, textFilter = NULL,
 #' @param container a function to generate an HTML element to contain the text
 #' @param inline use an inline (\code{span()}) or block container (\code{div()})
 #'   for the output
+#' @param ... optional arguments to pass on to \code{container}
 #' @return A text output element that can be included in a panel
 #' @details Text is HTML-escaped prior to rendering. This element is often used
 #'   to display \link{renderText} output variables.
 #' @examples
 #' h3(textOutput("caption"))
 #' @export
-textOutput <- function(outputId, container = if (inline) span else div, inline = FALSE) {
-  container(id = outputId, class = "shiny-text-output")
+textOutput <- function(outputId, container = if (inline) span else div,
+                       inline = FALSE, ...) {
+  container(id = outputId, class = "shiny-text-output", ...)
 }
 
 #' Create a verbatim text output element
@@ -935,10 +937,13 @@ textOutput <- function(outputId, container = if (inline) span else div, inline =
 #' Render a reactive output variable as verbatim text within an
 #' application page. The text will be included within an HTML \code{pre} tag.
 #' @param outputId output variable to read the value from
+#' @param placeholder if the output is empty or \code{NULL}, should an empty
+#'   rectangle be displayed to serve as a placeholder? (does not affect
+#'   behavior when the the output in nonempty)
 #' @return A verbatim text output element that can be included in a panel
 #' @details Text is HTML-escaped prior to rendering. This element is often used
-#' with the \link{renderPrint} function to preserve fixed-width formatting
-#' of printed objects.
+#'   with the \link{renderPrint} function to preserve fixed-width formatting
+#'   of printed objects.
 #' @examples
 #' mainPanel(
 #'   h4("Summary"),
@@ -948,8 +953,8 @@ textOutput <- function(outputId, container = if (inline) span else div, inline =
 #'   tableOutput("view")
 #' )
 #' @export
-verbatimTextOutput <- function(outputId) {
-  textOutput(outputId, container = pre)
+verbatimTextOutput <- function(outputId, placeholder = TRUE) {
+  textOutput(outputId, container = pre, class = if (!placeholder) "noplaceholder")
 }
 
 

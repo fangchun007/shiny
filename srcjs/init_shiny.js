@@ -222,6 +222,7 @@ function initShiny() {
   // Calls .initialize() for all of the input objects in all input bindings,
   // in the given scope.
   function initializeInputs(scope = document) {
+
     var bindings = inputBindings.getBindings();
 
     // Iterate over all bindings

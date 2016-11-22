@@ -1,3 +1,9 @@
+pre.shiny-text-output.noplaceholder:empty {
+  padding: 0px;
+  margin: 0px;
+  border-style: none;
+}
+
 #shiny-disconnected-overlay {
   position: fixed;
   top: 0;

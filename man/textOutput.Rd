@@ -4,7 +4,8 @@
 \alias{textOutput}
 \title{Create a text output element}
 \usage{
-textOutput(outputId, container = if (inline) span else div, inline = FALSE)
+textOutput(outputId, container = if (inline) span else div, inline = FALSE,
+  ...)
 }
 \arguments{
 \item{outputId}{output variable to read the value from}
@@ -13,6 +14,8 @@ textOutput(outputId, container = if (inline) span else div, inline = FALSE)
 
 \item{inline}{use an inline (\code{span()}) or block container (\code{div()})
 for the output}
+
+\item{...}{optional arguments to pass on to \code{container}}
 }
 \value{
 A text output element that can be included in a panel
