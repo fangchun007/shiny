@@ -920,16 +920,14 @@ buildTabset <- function(tabs, ulClass, textFilter = NULL,
 #' @param container a function to generate an HTML element to contain the text
 #' @param inline use an inline (\code{span()}) or block container (\code{div()})
 #'   for the output
-#' @param ... optional arguments to pass on to \code{container}
 #' @return A text output element that can be included in a panel
 #' @details Text is HTML-escaped prior to rendering. This element is often used
 #'   to display \link{renderText} output variables.
 #' @examples
 #' h3(textOutput("caption"))
 #' @export
-textOutput <- function(outputId, container = if (inline) span else div,
-                       inline = FALSE, ...) {
-  container(id = outputId, class = "shiny-text-output", ...)
+textOutput <- function(outputId, container = if (inline) span else div, inline = FALSE) {
+  container(id = outputId, class = "shiny-text-output")
 }
 
 #' Create a verbatim text output element
@@ -954,7 +952,8 @@ textOutput <- function(outputId, container = if (inline) span else div,
 #' )
 #' @export
 verbatimTextOutput <- function(outputId, placeholder = TRUE) {
-  textOutput(outputId, container = pre, class = if (!placeholder) "noplaceholder")
+  pre(id = outputId,
+      class = paste("shiny-text-output", if (!placeholder) "noplaceholder"))
 }
 
 
