@@ -5,6 +5,8 @@ shiny 0.14.2.9000
 
 ### Minor new features and improvements
 
+* Added ability through arguments to the `a` tag function called inside `downloadButton()` and `downloadLink()`. Closes [#986](https://github.com/rstudio/shiny/issues/986). ([#1492](https://github.com/rstudio/shiny/pulls/1492))
+
 ### Bug fixes
 
 * Fixed bug causing `<meta>` tags associated with HTML dependencies of Shiny R Markdown files to be rendered incorrectly. ([#1463](https://github.com/rstudio/shiny/pull/1463))
